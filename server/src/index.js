@@ -26,7 +26,14 @@ connectDB();
 
 // Security middleware
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
-app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:5173'], credentials: true }));
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://interview-ai-bzhd.vercel.app"
+  ],
+  credentials: true
+}));
 
 // Rate limiting
 const limiter = rateLimit({

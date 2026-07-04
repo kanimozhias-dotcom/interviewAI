@@ -60,6 +60,12 @@ app.use('/api/reports', reportRoutes);
 // app.use('/api/roadmaps', roadmapRoutes);
 // app.use('/api/admin', adminRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "InterviewAI Backend is Live 🚀",
+  });
+});
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ success: false, message: `Route ${req.originalUrl} not found` });
@@ -73,13 +79,6 @@ app.listen(PORT, () => {
   console.log(`\n🚀 InterviewAI Server running on http://localhost:${PORT}`);
   console.log(`📊 Environment: ${process.env.NODE_ENV}`);
   console.log(`🔗 API: http://localhost:${PORT}/api/health\n`);
-});
-
-app.get("/", (req, res) => {
-  res.json({
-    success: true,
-    message: "InterviewAI Backend is Live 🚀",
-  });
 });
 
 export default app;

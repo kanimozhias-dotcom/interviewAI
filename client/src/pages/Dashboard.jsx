@@ -74,25 +74,11 @@ const fetchStats = async () => {
   }
 };
 
-const fetchUser = async () => {
-  try {
-    const res = await fetch(
-      `${import.meta.env.VITE_API_URL}/api/dashboard/stats`,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
+const fetchUser = () => {
+  const savedUser = JSON.parse(localStorage.getItem("user"));
 
-    const data = await res.json();
-
-    if (data.success) {
-      setUser(data.user);
-    }
-
-  } catch (error) {
-    console.error(error);
+  if (savedUser) {
+    setUser(savedUser);
   }
 };
 

@@ -22,7 +22,7 @@ const sessionId =
       try {
 
         if (!routeSessionId) {
-  await fetch("http://localhost:5000/api/reports/generate", {
+  await fetch(`${import.meta.env.VITE_API_URL}/api/reports/generate`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const sessionId =
 }
 
         const response = await fetch(
-  `http://localhost:5000/api/reports/${sessionId}`,
+  `${import.meta.env.VITE_API_URL}/api/reports/${sessionId}`,
   {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,

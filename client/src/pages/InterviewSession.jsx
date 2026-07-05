@@ -27,7 +27,7 @@ const InterviewSession = () => {
   useEffect(() => {
     const loadQuestions = async () => {
       try {
-        const url = `http://localhost:5000/api/questions/${encodeURIComponent(role)}/${encodeURIComponent(difficulty)}`;
+        const url = `${import.meta.env.VITE_API_URL}/api/questions/${encodeURIComponent(role)}/${encodeURIComponent(difficulty)}`;
         const res = await fetch(url);
         const data = await res.json();
         
@@ -102,7 +102,7 @@ const InterviewSession = () => {
     if (currentQuestion) {
       const token = localStorage.getItem("token");
 
-await fetch("http://localhost:5000/api/answers", {
+await fetch(`${import.meta.env.VITE_API_URL}/api/answers`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -127,7 +127,7 @@ await fetch("http://localhost:5000/api/answers", {
     }));
 
     const response = await fetch(
-      "http://localhost:5000/api/reports/generate",
+  `${import.meta.env.VITE_API_URL}/api/reports/generate`,
       {
         method: "POST",
         headers: {
@@ -221,7 +221,7 @@ await fetch("http://localhost:5000/api/answers", {
     try {
       const token = localStorage.getItem("token");
 
-const res = await fetch("http://localhost:5000/api/answers", {
+const res = await fetch(`${import.meta.env.VITE_API_URL}/api/answers`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -255,7 +255,7 @@ const res = await fetch("http://localhost:5000/api/answers", {
 try {
   const token = localStorage.getItem("token");
 
-const repRes = await fetch("http://localhost:5000/api/reports/generate", {
+const repRes = await fetch(`${import.meta.env.VITE_API_URL}/api/reports/generate`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

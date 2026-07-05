@@ -55,7 +55,7 @@ navigate("/") // Redirects to Login page
 const fetchStats = async () => {
   try {
     const res = await fetch(
-      "http://localhost:5000/api/dashboard/stats",
+      `${import.meta.env.VITE_API_URL}/api/dashboard/stats`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -77,7 +77,7 @@ const fetchStats = async () => {
 const fetchUser = async () => {
   try {
     const res = await fetch(
-      "http://localhost:5000/api/auth/me",
+      `${import.meta.env.VITE_API_URL}/api/dashboard/stats`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
